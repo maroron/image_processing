@@ -24,7 +24,6 @@ for i in range(cnt * 2):
 
     elif i < cnt * 2:
         plt.subplot(2, 3, i+1)        
-        # plt.hist(images[i - cnt].flatten(), 256, [0, 256])
         plt.axis([0, 255, 0, 3000])
 
         hist_b = cv2.calcHist([colors[i-cnt][0]], [0], None, [256], [0, 256])
