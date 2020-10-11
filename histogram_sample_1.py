@@ -9,9 +9,6 @@ img_blue = cv2.imread('data/3.png', 0)
 img_green = cv2.GaussianBlur(img_green, (5,5),0)
 img_normal = cv2.GaussianBlur(img_normal, (5,5),0)
 img_blue = cv2.GaussianBlur(img_blue, (5,5),0)
-# ret, img_green = cv2.threshold(img_green,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
-# ret, img_normal = cv2.threshold(img_normal,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
-# ret, img_blue = cv2.threshold(img_blue,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
 
 img_green = cv2.equalizeHist(img_green)
 img_normal = cv2.equalizeHist(img_normal)
@@ -24,7 +21,7 @@ cnt = len(images)
 for i in range(cnt * 3):
     # 1行目 画像の出力
     if i < cnt:
-        kernel = np.ones((5,5),np.uint8)
+        kernel = np.ones((11,11),np.uint8)
         # images[i] = cv2.morphologyEx(images[i], cv2.MORPH_CLOSE, kernel)
         images[i] = cv2.morphologyEx(images[i], cv2.MORPH_OPEN, kernel)
         ret, images[i] = cv2.threshold(images[i],0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
